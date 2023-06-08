@@ -79,7 +79,7 @@ module Spree
         super
         @properties[:ignore_search] = params[:ignore_search]
         @properties[:producer] = params[:producer]
-        @properties[:stock_location_ids] = params[:stock_location_ids]
+        @properties[:stock_location_ids] = params[:stock_location_ids].split(',').compact.uniq
         @properties[:current_store_id] = params[:current_store_id]
         taxon_ids = [taxon]
         if params[:property].present?
